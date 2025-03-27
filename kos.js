@@ -1,4 +1,10 @@
-const str = "This is cool";
-for (const char of str) {
-  console.log(char);
+const obj = {
+  a: 10,
+  b: 20,
+  c: 30,
+  d: 40,
+};
+
+for (let val of Object.values(obj)) {
+  console.log(val);
 }
