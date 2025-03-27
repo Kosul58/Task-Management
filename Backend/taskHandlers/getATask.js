@@ -1,11 +1,11 @@
 import Task from "../Database/Task.cjs";
 import { connectDB, closeConn } from "../Database/dbHandler.js";
 
-const getATask = async (title) => {
+const getATask = async (id) => {
   await connectDB();
   try {
     // console.log(task);
-    const task = await Task.findOne({ title: title });
+    const task = await Task.findOne({ _id: id });
     if (!task) {
       // console.log("no task found");
       return "no task found";

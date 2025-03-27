@@ -2,14 +2,14 @@ import Task from "../Database/Task.cjs";
 import { connectDB, closeConn } from "../Database/dbHandler.js";
 
 //function to update a task
-const updateTask = async (task, newTitle, newStatus) => {
+const updateTask = async (taskid, newTitle, newStatus) => {
   await connectDB();
   try {
     let updateData = {};
     if (newTitle) updateData.title = newTitle;
     if (newStatus) updateData.status = newStatus;
     const updatedTask = await Task.findOneAndUpdate(
-      { title: task.title },
+      { _id: taskid },
       updateData,
       { new: true }
     );
