@@ -1,3 +1,5 @@
+```JS
+
 // String Method
 
 // String.fromCharCode()
@@ -317,3 +319,4 @@ c
 o
 o
 l
+```

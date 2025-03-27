@@ -1,6 +1,8 @@
+```JS
 // Array methods
 
 // Array.of() used to create an array
+
 const arr = Array.of(1, 2, 3, 4);
 console.log(arr); -> [ 1, 2, 3, 4 ]
 
@@ -492,3 +494,4 @@ return customSort(filterdarr);
 };
 
 console.log(filterfunc(arr));
+```

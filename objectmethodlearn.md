@@ -1,3 +1,5 @@
+```JS
+
 // Object mehtods
 
 // object.assign()
@@ -212,3 +214,4 @@ console.log(val);
 20
 30
 40
+```
