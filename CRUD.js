@@ -2,6 +2,15 @@ let tasks = []; // an array to store all tasks
 
 //function to create a task
 function createTask(taskid, title, description, status) {
+  if (!taskid || !title || !description || !status) {
+    console.log("Please Enter all fields");
+  }
+
+  //if we want it so that we can have some fields empty (example status) then we can use
+  //   if (!taskid || !title || !description) {                 //don't check for status
+  //     console.log("Please Enter all fields");
+  //   }
+
   let task = {
     taskid: taskid,
     title: title,
@@ -36,12 +45,18 @@ createTask("103", "Learn OOP", "learning and documenting OOP in JS", "pending");
 
 //function to read a certain task based on its taskid
 function readATask(taskid) {
+  if (!taskid) {
+    console.log("Please Enter the taskid");
+    return;
+  }
+
   let displaytask;
   for (let task of tasks) {
     if (task.taskid === taskid) {
       displaytask = task;
     }
   }
+
   if (displaytask) {
     console.log(displaytask);
   } else {
@@ -71,6 +86,10 @@ function readTasks() {
 
 //function to update a specific task based on its taskid , field , update
 function updateTask(taskid, field, update) {
+  if (!taskid || !field || !update) {
+    console.log("Please Enter all information");
+    return;
+  }
   // find the index of the task to update
   console.log(tasks);
   for (let task of tasks) {
@@ -93,15 +112,28 @@ function updateTask(taskid, field, update) {
 
 //function to delete a task based on its taskid
 function deleteTask(taskid) {
+  if (!taskid) {
+    console.log("Please Enter the taskid");
+    return;
+  }
   console.log(tasks);
   let newTasks = [];
   let newIndex = 0;
+  let isThereTask;
   for (let i = 0; i < tasks.length; i++) {
-    if (tasks[i].taskid !== taskid) {
+    if (tasks[i].taskid === taskid) {
+      isThereTask = true;
+    } else if (tasks[i].taskid !== taskid) {
       newTasks[newIndex] = tasks[i];
       newIndex++;
     }
   }
+
+  if (!isThereTask) {
+    console.log("No TaskFound");
+    return;
+  }
+
   tasks = newTasks;
   console.log(tasks);
   // tasks = tasks.filter((task) => task.taskid !== taskid);
