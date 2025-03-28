@@ -71,10 +71,22 @@ const person = {
 age: 20,
 };
 
+
+
 Object.freeze(person);
 
 person.age = 50;
 console.log(person); -> 20
+
+
+//deleting properties form an object
+/*
+let obj = { name: "Alice", age: 25, city: "New York" };
+
+delete obj.age; // Removes the 'age' property
+
+console.log(obj); // { name: "Alice", city: "New York" }
+*/
 
 // Object.fromEntries()
 
@@ -97,6 +109,7 @@ const inventory = [
 { name: "cherries", type: "fruit", quantity: 12 },
 { name: "fish", type: "meat", quantity: 22 },
 ];
+
 const result = Object.groupBy(inventory, ({ quantity }) =>
 quantity < 10 ? "restock" : "sufficient"
 );
@@ -161,7 +174,6 @@ Object.isExtensible(obj)
 to check if an object is froozen or not
 
 // Object.seal()
-
 you cannot add or delete properties but can modify existing ones
 (with freeze you cannot even modify existing properties)
 
@@ -214,4 +226,6 @@ console.log(val);
 20
 30
 40
+
+
 ```

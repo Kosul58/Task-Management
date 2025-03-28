@@ -7,7 +7,7 @@ const deleteTask = async (taskid) => {
   try {
     //search and delete tasks based on task title
     // console.log(task.title);
-    const deletedTask = await Task.findOneAndDelete({ _id: taskid });
+    const deletedTask = await Task.findOneAndDelete({ taskid: taskid });
     if (!deletedTask) {
       // console.log("no task found");
       return "no task found";

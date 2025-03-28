@@ -69,7 +69,7 @@ embeds inside a <bold> element
 embeds inside a <tt> element (element with a fixed width font)
 
 // String.fontcolor()
-embeds inside a <font> element with size fontcolor(color) -> <font color="color"> </font>
+embeds inside a <font> element with color fontcolor(color) -> <font color="color"> </font>
 
 // String.fontsize()
 embeds inside a <font> element with size fontsize(size) -> <font size="size"> </font>
@@ -91,6 +91,8 @@ embeds inside a <a> element with href link equaling link(link) -> <a href="link"
 
 // string.sup()
 <sup>str</sup>
+
+
 
 // String.concat()
 joins multiple strings and returns a new joined string
@@ -319,4 +321,6 @@ c
 o
 o
 l
+
+
 ```

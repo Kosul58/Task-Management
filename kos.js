@@ -1,10 +1,11 @@
-const obj = {
-  a: 10,
-  b: 20,
-  c: 30,
-  d: 40,
-};
+const object1 = {};
 
-for (let val of Object.values(obj)) {
-  console.log(val);
-}
+Object.defineProperties(object1, {
+  property1: {
+    value: 42,
+    writable: true,
+  },
+  property2: {},
+});
+
+console.log(object1.property1);

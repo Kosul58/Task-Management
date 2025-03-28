@@ -13,7 +13,7 @@ console.log(arr); -> [ 1, 2, 'aa', 'bb' ]
 const arr = Array.from("foo");
 console.log(arr); -> [ 'f', 'o', 'o' ]
 
-const arr = Array.from([1, 2, 3], (x) => x \* 2);
+const arr = Array.from([1, 2, 3], (x) => x * 2);
 console.log(arr); -> [ 2, 4, 6 ]
 
 // isArray() used to check if given value is an array or not
@@ -192,7 +192,7 @@ const elements = ["Fire", "Air", "Water"];
 console.log(elements.join()); -> Fire,Air,Water
 console.log(elements.join("+")); -> Fire+Air+Water
 const elements = [1, 2, 3, 4, 5];
-console.log(elements.join("\_")); -> 1_2_3_4_5
+console.log(elements.join("_")); -> 1_2_3_4_5
 
 // Array.keys()
 The keys() method of Array instances returns a new array iterator object that contains the keys for each index in the array.
@@ -394,7 +394,8 @@ arr.splice(2, 0, "wed", "thus", "fri");
 console.log(arr); -> [ 'sun', 'mon', 'wed', 'thus', 'fri', 'tue' ]
 
 // Array.with()
-used to create a new array by changing a value at a given index
+used to create a new array by changing a value at a given index and returning it
+-doesnot affect the orignial array
 arrayInstance.with(index, value)
 const arr = ["sun", "mon", "tue", "thus"];
 console.log(arr.with(2, "Tue")); -> [ 'sun', 'mon', 'Tue', 'thus' ]
@@ -435,6 +436,7 @@ output = ["bat", "cat", "Eat", "fat", "hat", "Mat", ""];
 
 const myfunc = (array) => {
 let filteredArr = [];
+
 //filter section
 array.forEach((x) => {
 const lcase = x.toLowerCase();
@@ -494,4 +496,6 @@ return customSort(filterdarr);
 };
 
 console.log(filterfunc(arr));
+
+
 ```

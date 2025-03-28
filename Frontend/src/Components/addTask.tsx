@@ -1,16 +1,29 @@
 import React, { useState } from "react";
-import { setTask, Task } from "../types";
+import { Task } from "../types";
+import { MdCancel } from "react-icons/md";
 interface TaskProps {
   setTaskPop: React.Dispatch<React.SetStateAction<boolean>>;
-  taskAdder: (tasj: setTask) => void;
+  taskAdder: (task: Task) => void;
 }
 const addTask: React.FC<TaskProps> = ({ setTaskPop, taskAdder }) => {
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [status, setStatus] = useState<string>("");
 
+  const generateId = (): string => {
+    // Timestamp component (13 digits)
+    const timestamp = Date.now().toString(36);
+
+    // Random component (11 characters)
+    const randomPart = Math.random().toString(36).substring(2, 15);
+
+    // Combine both parts to create a more unique ID
+    return `${timestamp}-${randomPart}`;
+  };
+
   const addtask = () => {
-    let task: setTask = {
+    let task: Task = {
+      taskid: generateId(),
       title: title,
       description: description,
       status: status,
@@ -19,11 +32,13 @@ const addTask: React.FC<TaskProps> = ({ setTaskPop, taskAdder }) => {
   };
 
   return (
-    <div className="w-[400px] h-[650px] absolute z-20 bg-red-200 text-black flex items-center justify-center flex-col gap-4">
+    <div className="w-[400px] h-[650px] absolute z-20 bg-red-200 text-black flex items-center justify-center flex-col gap-4 rounded-xl">
       <div
-        className="w-6 h-6 absolute top-4 right-4 bg-red-500 rounded-full hover:scale-110 cursor-pointer hover:bg-red-800"
+        className="w-6 h-6 absolute top-4 right-4 hover:text-red-600 cursor-pointer flex items-center justify-center "
         onClick={() => setTaskPop(false)}
-      ></div>
+      >
+        <MdCancel size={30} />
+      </div>
       <input
         type="text"
         placeholder="task title"

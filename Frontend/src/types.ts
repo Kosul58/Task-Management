@@ -1,11 +1,5 @@
 export type Task = {
-  _id: string;
-  title: string;
-  description: string;
-  status: string;
-};
-
-export type setTask = {
+  taskid: string;
   title: string;
   description: string;
   status: string;
