@@ -25,6 +25,7 @@ function createTask(taskid, title, description, status) {
 
   // console.log(task);
   tasks.push(task);
+  console.log(`Task created succesfully with taskid: ${task.taskid}`);
 }
 
 createTask(
@@ -85,16 +86,21 @@ function readTasks() {
 // readTasks();
 
 //function to update a specific task based on its taskid , field , update
-function updateTask(taskid, field, update) {
-  if (!taskid || !field || !update) {
+function updateTask(taskid, update) {
+  const { newtaskid, newtitle, newdescription, newstatus } = update;
+  if (!taskid || !update) {
     console.log("Please Enter all information");
     return;
   }
-  // find the index of the task to update
+
   console.log(tasks);
   for (let task of tasks) {
     if (task.taskid === taskid) {
-      task[field] = update;
+      if (newtitle) task.title = newtitle;
+      if (newdescription) task.description = newdescription;
+      if (newstatus) task.status = newstatus;
+      if (newtaskid) task.taskid = newtaskid;
+      console.log("Updated task is:", task);
     }
   }
   console.log(tasks);
@@ -107,8 +113,12 @@ function updateTask(taskid, field, update) {
   // }
 }
 
-// updateTask("101", "status", "pending");
-// readATask("101");
+updateTask("101", { newstatus: "pending" });
+updateTask("102", {
+  newtitle: "update2",
+  newdescription: "update2",
+  newstatus: "update2",
+});
 
 //function to delete a task based on its taskid
 function deleteTask(taskid) {
@@ -135,9 +145,10 @@ function deleteTask(taskid) {
   }
 
   tasks = newTasks;
+  console.log("task deleted successfully");
   console.log(tasks);
   // tasks = tasks.filter((task) => task.taskid !== taskid);
   // console.log(tasks);
 }
 
-deleteTask("101");
+// deleteTask("101");
